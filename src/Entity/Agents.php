@@ -1,0 +1,126 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\AgentsRepository;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass=AgentsRepository::class)
+ */
+class Agents
+{
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lastName;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $firstName;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $codeName;
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $skills = [];
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dateOfBirth;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nationality;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
+    }
+
+    public function setLastName(string $lastName): self
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    public function setFirstName(string $firstName): self
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    public function getCodeName(): ?string
+    {
+        return $this->codeName;
+    }
+
+    public function setCodeName(string $codeName): self
+    {
+        $this->codeName = $codeName;
+
+        return $this;
+    }
+
+    public function getSkills(): ?array
+    {
+        return $this->skills;
+    }
+
+    public function setSkills(array $skills): self
+    {
+        $this->skills = $skills;
+
+        return $this;
+    }
+
+    public function getDateOfBirth(): ?\DateTimeInterface
+    {
+        return $this->dateOfBirth;
+    }
+
+    public function setDateOfBirth(\DateTimeInterface $dateOfBirth): self
+    {
+        $this->dateOfBirth = $dateOfBirth;
+
+        return $this;
+    }
+
+    public function getNationality(): ?string
+    {
+        return $this->nationality;
+    }
+
+    public function setNationality(string $nationality): self
+    {
+        $this->nationality = $nationality;
+
+        return $this;
+    }
+}
