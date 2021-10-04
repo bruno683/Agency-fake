@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TargetsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class Targets
      * @ORM\Column(type="string", length=255)
      */
     private $codeName;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Missions::class, mappedBy="targets")
+     */
+    private $missions;
+
+    public function __construct()
+    {
+        $this->missions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +115,33 @@ class Targets
     public function setCodeName(string $codeName): self
     {
         $this->codeName = $codeName;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Missions[]
+     */
+    public function getMissions(): Collection
+    {
+        return $this->missions;
+    }
+
+    public function addMission(Missions $mission): self
+    {
+        if (!$this->missions->contains($mission)) {
+            $this->missions[] = $mission;
+            $mission->addTarget($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMission(Missions $mission): self
+    {
+        if ($this->missions->removeElement($mission)) {
+            $mission->removeTarget($this);
+        }
 
         return $this;
     }

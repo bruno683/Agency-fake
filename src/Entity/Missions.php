@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MissionsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -61,6 +63,28 @@ class Missions
      * @ORM\Column(type="array")
      */
     private $skills = [];
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Agents::class, inversedBy="missions")
+     */
+    private $agents;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Targets::class, inversedBy="missions")
+     */
+    private $targets;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Contacts::class, inversedBy="missions")
+     */
+    private $contacts;
+
+    public function __construct()
+    {
+        $this->agents = new ArrayCollection();
+        $this->targets = new ArrayCollection();
+        $this->contacts = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -171,6 +195,78 @@ class Missions
     public function setSkills(array $skills): self
     {
         $this->skills = $skills;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Agents[]
+     */
+    public function getAgents(): Collection
+    {
+        return $this->agents;
+    }
+
+    public function addAgent(Agents $agent): self
+    {
+        if (!$this->agents->contains($agent)) {
+            $this->agents[] = $agent;
+        }
+
+        return $this;
+    }
+
+    public function removeAgent(Agents $agent): self
+    {
+        $this->agents->removeElement($agent);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Targets[]
+     */
+    public function getTargets(): Collection
+    {
+        return $this->targets;
+    }
+
+    public function addTarget(Targets $target): self
+    {
+        if (!$this->targets->contains($target)) {
+            $this->targets[] = $target;
+        }
+
+        return $this;
+    }
+
+    public function removeTarget(Targets $target): self
+    {
+        $this->targets->removeElement($target);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Contacts[]
+     */
+    public function getContacts(): Collection
+    {
+        return $this->contacts;
+    }
+
+    public function addContact(Contacts $contact): self
+    {
+        if (!$this->contacts->contains($contact)) {
+            $this->contacts[] = $contact;
+        }
+
+        return $this;
+    }
+
+    public function removeContact(Contacts $contact): self
+    {
+        $this->contacts->removeElement($contact);
 
         return $this;
     }
