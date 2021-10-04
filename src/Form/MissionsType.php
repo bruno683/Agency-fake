@@ -45,46 +45,50 @@ class MissionsType extends AbstractType
             ->add('country', ChoiceType::class, [
                 'label'=>'Pays :',
                 'choices'=> [
-                    '1'=>'Estonie',
-                    '2'=>'Lettonie',
-                    '3'=>'Lituanie',
-                    '4'=>'Boznie-Herzégovine',
-                    '5'=>'Bulgarie',
-                    '6'=>'Croatie',
-                ]
+                    'Estonie '=>'1',
+                    'Lettonie'=>'2',
+                    'Lituanie'=>'3',
+                    'Boznie-Herzégovine'=>'4',
+                    'Bulgarie'=>'5',
+                    'Croatie'=>'6',
+                ],
+                'multiple'=>true
             ])
             ->add('skills', ChoiceType::class, [
                 'label'=>'Competences',
                 'choices'=> [
-                    '1'=>'Explosifs',
-                    '2'=>'Arts martiaux',
-                    '3'=>'Armes Blanches',
-                    '4'=>'Armes de poing',
-                    '5'=>'Poison',
-                    '6'=>'Sniper',
-                    '7'=>'Infiltration'
-                ]
+                    'Explosifs'=>'1',
+                    'Arts martiaux'=>'2',
+                    'Armes Blanches'=>'3',
+                    'Armes de poing'=>'4',
+                    'Poison'=>'5',
+                    'Sniper'=>'6',
+                    'Infiltration'=>'7'
+                ],
+                'multiple'=>true
 
             ])
             ->add('agents', EntityType::class,[
                 'class'=> Agents::class,
-                'choice_label'=> function(AgentsRepository $agents){
-                    return $agents->createQueryBuilder('a')->orderBy('a.lastname', 'ASC');
+                'choice_label'=> function(Agents $agents){
+                    return $agents->getLastName() .' '. $agents->getFirstName();
                 },
                 'multiple'=>true
             ])
             ->add('targets', EntityType::class, [
                 'label'=>'Cibles',
                 'class'=> Targets::class,
-                'choice_label'=> function(TargetsRepository $targetsRepo){
-                    return $targetsRepo->createQueryBuilder('t')->orderBy('t.lastName', 'ASC');
+                'choice_label'=> function(Targets $targets){
+                    return $targets->getLastName(). ' ' . $targets->getFirstName();
                 },
+                'multiple'=>true
             ])
             ->add('contacts', EntityType::class, [
                 'class'=>Contacts::class,
-                'choice_label'=> function(ContactsRepository $contactsRepo){
-                    return $contactsRepo->createQueryBuilder('c')->orderBy('c.LastName', 'ASC');
+                'choice_label'=> function(Contacts $contacts){
+                    return $contacts->getLastName().' '. $contacts->getFirstName();
                 },
+                'multiple'=>true
             ])
         ;
     }
