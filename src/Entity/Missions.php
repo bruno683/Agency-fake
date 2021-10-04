@@ -60,9 +60,9 @@ class Missions
     private $country;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="string")
      */
-    private $skills = [];
+    private $skills;
 
     /**
      * @ORM\ManyToMany(targetEntity=Agents::class, inversedBy="missions")
@@ -187,12 +187,12 @@ class Missions
         return $this;
     }
 
-    public function getSkills(): ?array
+    public function getSkills(): ?string
     {
         return $this->skills;
     }
 
-    public function setSkills(array $skills): self
+    public function setSkills(string $skills): self
     {
         $this->skills = $skills;
 
