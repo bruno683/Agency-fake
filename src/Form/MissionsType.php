@@ -50,6 +50,7 @@ class MissionsType extends AbstractType
                     'Congo' => 'Congo',
                     'France' => 'France',
                     'Japan' => 'Japan',
+                    'Suede'=> 'Suéde',
                     'UK' => 'UK',
                     'USA' => 'USA',
                     'Russia' => 'Russia',

@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Targets;
+use App\Entity\Contacts;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TargetsType extends AbstractType
+class ContactsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -19,14 +19,15 @@ class TargetsType extends AbstractType
                 'label'=> 'Nom :'
             ])
             ->add('firstName', TextType::class, [
-                'label'=> 'prénom :'
+                'label'=>'pPrénom :'
             ])
             ->add('dateOfBirth', DateType::class, [
-                'label'=>'Date de début',
-                'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd'
+                'label'=>'Date de naissance :'
             ])
-            ->add('nationality', ChoiceType::class, [
+            ->add('codeName', TextType::class, [
+                'label'=>'nom de code'
+            ])
+            ->add('nationality',ChoiceType::class, [
                 
                 'choices' => [
                     'Belgium' => 'Belgique',
@@ -43,16 +44,13 @@ class TargetsType extends AbstractType
                     'Espana'=>'Espagne'
                 ],
             ])
-            ->add('codeName', TextType::class, [
-                'label'=> 'Nom de code'
-            ] )
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Targets::class,
+            'data_class' => Contacts::class,
         ]);
     }
 }
