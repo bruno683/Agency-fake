@@ -1,9 +1,9 @@
 {% extends "layouts/base.html.twig" %}
 
 {% block body %}
-    <h1>Create new Missions</h1>
+    <h1>Créer une nouvelle mission</h1>
 
     {{ include('missions/_form.html.twig') }}
 
-    <a href="{{ path('missions_index') }}">back to list</a>
+    <a href="{{ path('missions_index') }}"><button class="btn btn-warning"> Revenir à la liste</button></a>
 {% endblock %}

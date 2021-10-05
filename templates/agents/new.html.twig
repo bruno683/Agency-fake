@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-
-<title>New Agents</title>
+{% extends "layouts/base.html.twig" %}
 
 {% block body %}
-    <h1>Create new Agents</h1>
-
-    {{ include('agents/_form.html.twig') }}
-
-    <a href="{{ path('agents_index') }}"><button class="btn btn-warning">back to list</button></a>
+    <h1>Créer un nouvel agent</h1>
+    <hr>
+    <div class="card shadow-lg p-3 mb-5 bg-body rounded ">
+        {{ include('agents/_form.html.twig') }}
+        <div class="position-absolute bottom-0 end-0 px-3 py-3">
+            <a href="{{ path('agents_index') }}"><button class="btn btn-warning">back to list</button></a>
+        </div>
+        
+    </div>
+    
 {% endblock %}

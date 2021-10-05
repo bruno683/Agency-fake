@@ -72,9 +72,10 @@ class MissionsType extends AbstractType
             ])
             ->add('agents', EntityType::class,[
                 'class'=> Agents::class,
-                'choice_label'=> function($agents){
+                'choice_label'=>'lastName',
+                /*'choice_label'=> function($agents){
                     return $agents->getLastName() .' ('. $agents->getNationality().')';
-                },
+                },*/
                 'multiple'=> true,
                 'expanded'=>true
               

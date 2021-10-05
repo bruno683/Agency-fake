@@ -44,16 +44,18 @@ class AgentsType extends AbstractType
             ])
             ->add('nationality', ChoiceType::class, [
                 'choices' => [
-                    'Belgium' => 'Belgium',
-                    'Brazil' => 'Brazil',
-                    'China' => 'China',
+                    'Belgium' => 'Belgique',
+                    'Brazil' => 'Brésil',
+                    'China' => 'Chine',
                     'Congo' => 'Congo',
                     'France' => 'France',
-                    'Japan' => 'Japan',
-                    'UK' => 'UK',
+                    'Japon' => 'Japon',
+                    'UK' => 'Royaume-Unis',
+                    'switzerland'=>'Suéde',
                     'USA' => 'USA',
-                    'Russia' => 'Russia',
-                    'Swiss' => 'Swiss',
+                    'Russia' => 'Russie',
+                    'Swiss' => 'Suisse',
+                    'Espana'=>'Espagne'
                 ],
             ])
         ;
