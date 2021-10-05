@@ -41,7 +41,6 @@ class MissionsController extends AbstractController
             'form' => $form,
         ]);
     }
-
     #[Route('/{id}', name: 'missions_show', methods: ['GET'])]
     public function show(Missions $mission): Response
     {
@@ -49,6 +48,7 @@ class MissionsController extends AbstractController
             'mission' => $mission,
         ]);
     }
+    
 
     #[Route('/{id}/edit', name: 'missions_edit', methods: ['GET','POST'])]
     public function edit(Request $request, Missions $mission): Response

@@ -43,16 +43,18 @@ class MissionsType extends AbstractType
             ])
             ->add('status', TextType::class)
             ->add('country', ChoiceType::class, [
-                'label'=>'Pays :',
-                'choices'=> [
-                    'Estonie '=>'1',
-                    'Lettonie'=>'2',
-                    'Lituanie'=>'3',
-                    'Boznie-Herzégovine'=>'4',
-                    'Bulgarie'=>'5',
-                    'Croatie'=>'6',
-                ],
-                'multiple'=>true
+                'choices' => [
+                    'Belgium' => 'Belgium',
+                    'Brazil' => 'Brazil',
+                    'China' => 'China',
+                    'Congo' => 'Congo',
+                    'France' => 'France',
+                    'Japan' => 'Japan',
+                    'UK' => 'UK',
+                    'USA' => 'USA',
+                    'Russia' => 'Russia',
+                    'Swiss' => 'Swiss',
+                ]
             ])
             ->add('skills', ChoiceType::class, [
                 'label'=>'Competences',
