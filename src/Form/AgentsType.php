@@ -51,7 +51,7 @@ class AgentsType extends AbstractType
                     'France' => 'France',
                     'Japon' => 'Japon',
                     'UK' => 'Royaume-Unis',
-                    'switzerland'=>'Suéde',
+                    'Suede'=>'Suéde',
                     'USA' => 'USA',
                     'Russia' => 'Russie',
                     'Swiss' => 'Suisse',
