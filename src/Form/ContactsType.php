@@ -19,7 +19,7 @@ class ContactsType extends AbstractType
                 'label'=> 'Nom :'
             ])
             ->add('firstName', TextType::class, [
-                'label'=>'pPrénom :'
+                'label'=>'Prénom :'
             ])
             ->add('dateOfBirth', DateType::class, [
                 'label'=>'Date de naissance',
