@@ -27,7 +27,30 @@
                 <th>Type</th>
                 <td>{{ mission.type }}</td>
             </tr>
-           
+            <tr>
+                <th>Agents</th>
+                <td>
+                    {% for agents in mission.agents %}
+						<li>{{agents.lastName}} - {{ agents.nationality}}</li>
+					{% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>Targets</th>
+                <td>
+                    {% for targets in mission.targets %}
+						<li>{{targets.lastName}} - {{ targets.nationality}}</li>
+					{% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>Contacts</th>
+                <td>
+                    {% for contacts in mission.contacts %}
+						<li>{{contacts.lastName}} - {{ contacts.nationality}}</li>
+					{% endfor %}
+                </td>
+            </tr>
             <tr>
                 <th>StartDate</th>
                 <td>{{ mission.startDate ? mission.startDate|date('Y-m-d H:i:s') : '' }}</td>
@@ -36,6 +59,7 @@
                 <th>EndDate</th>
                 <td>{{ mission.endDate ? mission.endDate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
+
             <tr>
                 <th>Status</th>
                 <td>{{ mission.status }}</td>

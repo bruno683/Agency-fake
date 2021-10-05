@@ -59,31 +59,33 @@ class MissionsType extends AbstractType
             ->add('skills', ChoiceType::class, [
                 'label'=>'Competences',
                 'choices'=> [
-                    'Explosifs'=>'1',
-                    'Arts martiaux'=>'2',
-                    'Armes Blanches'=>'3',
-                    'Armes de poing'=>'4',
-                    'Poison'=>'5',
-                    'Sniper'=>'6',
-                    'Infiltration'=>'7'
-                ],
-                'multiple'=>true
+                    'Explosifs'=>'Explosifs',
+                    'Arts martiaux'=>'Arts martiaux',
+                    'Armes Blanches'=>'Armes Blanches',
+                    'Armes de poing'=>'Armes de poing',
+                    'Poison'=>'Poison',
+                    'Sniper'=>'Sniper',
+                    'Infiltration'=>'Infiltration'
+                ]
+               
 
             ])
             ->add('agents', EntityType::class,[
                 'class'=> Agents::class,
-                'choice_label'=> function(Agents $agents){
-                    return $agents->getLastName() .' '. $agents->getFirstName();
+                'choice_label'=> function($agents){
+                    return $agents->getLastName() .' ('. $agents->getNationality().')';
                 },
-                'multiple'=>true
+                'multiple'=> true,
+                'expanded'=>false
+              
             ])
             ->add('targets', EntityType::class, [
-                'label'=>'Cibles',
-                'class'=> Targets::class,
-                'choice_label'=> function(Targets $targets){
-                    return $targets->getLastName(). ' ' . $targets->getFirstName();
+                'choice_label' => function ($targets) {
+                    return $targets->getLastName() . " (" . $targets->getNationality() . ")";
                 },
-                'multiple'=>true
+                'class' => Targets::class,
+                'multiple' => true,
+                'expanded' => true,
             ])
             ->add('contacts', EntityType::class, [
                 'class'=>Contacts::class,
