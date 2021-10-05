@@ -22,7 +22,9 @@ class ContactsType extends AbstractType
                 'label'=>'pPrénom :'
             ])
             ->add('dateOfBirth', DateType::class, [
-                'label'=>'Date de naissance :'
+                'label'=>'Date de naissance',
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd'
             ])
             ->add('codeName', TextType::class, [
                 'label'=>'nom de code'

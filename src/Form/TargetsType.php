@@ -22,7 +22,7 @@ class TargetsType extends AbstractType
                 'label'=> 'prénom :'
             ])
             ->add('dateOfBirth', DateType::class, [
-                'label'=>'Date de début',
+                'label'=>'Date de naissance',
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd'
             ])
