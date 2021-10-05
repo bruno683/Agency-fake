@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-
-<title>Agents</title>
+{% extends "layouts/base.html.twig" %}
 
 {% block body %}
     <h1>Agents</h1>
@@ -25,11 +23,7 @@
             </tr>
             <tr>
                 <th>Skills</th>
-                <td>{{ agent.skills ? agent.skills|join(', ') : '' }}</td>
-            </tr>
-            <tr>
-                <th>DateOfBirth</th>
-                <td>{{ agent.dateOfBirth ? agent.dateOfBirth|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ agent.skills ? agent.skills|join(', ') : ''  }}</td>
             </tr>
             <tr>
                 <th>Nationality</th>
@@ -38,9 +32,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('agents_index') }}">back to list</a>
+    <a href="{{ path('agents_index') }}"><button class="btn btn-warning">back to list</button></a>
 
-    <a href="{{ path('agents_edit', {'id': agent.id}) }}">edit</a>
+    <a href="{{ path('agents_edit', {'id': agent.id}) }}"><button class="btn btn-success">edit</button></a>
 
     {{ include('agents/_delete_form.html.twig') }}
 {% endblock %}

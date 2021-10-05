@@ -35,9 +35,9 @@ class Agents
     private $codeName;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="string", length=255)
      */
-    private $skills = [];
+    private $skills ;
 
     /**
      * @ORM\Column(type="datetime")
@@ -100,12 +100,12 @@ class Agents
         return $this;
     }
 
-    public function getSkills(): ?array
+    public function getSkills(): ?string
     {
         return $this->skills;
     }
 
-    public function setSkills(array $skills): self
+    public function setSkills(string $skills): self
     {
         $this->skills = $skills;
 

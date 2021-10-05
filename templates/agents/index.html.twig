@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-
-<title>Agents index</title>
-
+{% extends "layouts/base.html.twig" %}
 {% block body %}
     <h1>Agents index</h1>
 
@@ -25,12 +22,11 @@
                 <td>{{ agent.lastName }}</td>
                 <td>{{ agent.firstName }}</td>
                 <td>{{ agent.codeName }}</td>
-                <td>{{ agent.skills ? agent.skills|join(', ') : '' }}</td>
-                <td>{{ agent.dateOfBirth ? agent.dateOfBirth|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ agent.skills ? agent.skills|join(', ') : ''  }}</td>
                 <td>{{ agent.nationality }}</td>
                 <td>
-                    <a href="{{ path('agents_show', {'id': agent.id}) }}">show</a>
-                    <a href="{{ path('agents_edit', {'id': agent.id}) }}">edit</a>
+                    <a href="{{ path('agents_show', {'id': agent.id}) }}"> <button class="btn btn-primary">show</button></a>
+                    <a href="{{ path('agents_edit', {'id': agent.id}) }}"> <button class="btn btn-warning">edit</button></a>
                 </td>
             </tr>
         {% else %}
@@ -41,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('agents_new') }}">Create new</a>
+    <a href="{{ path('agents_new') }}"><button class="btn btn-success">Créer un nouvel agent</button></a>
 {% endblock %}

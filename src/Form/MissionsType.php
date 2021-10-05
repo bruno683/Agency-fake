@@ -76,7 +76,7 @@ class MissionsType extends AbstractType
                     return $agents->getLastName() .' ('. $agents->getNationality().')';
                 },
                 'multiple'=> true,
-                'expanded'=>false
+                'expanded'=>true
               
             ])
             ->add('targets', EntityType::class, [
@@ -92,7 +92,8 @@ class MissionsType extends AbstractType
                 'choice_label'=> function(Contacts $contacts){
                     return $contacts->getLastName().' '. $contacts->getFirstName();
                 },
-                'multiple'=>true
+                'multiple'=>true,
+                'expanded'=>true
             ])
         ;
     }

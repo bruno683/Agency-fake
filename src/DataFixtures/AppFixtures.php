@@ -20,8 +20,8 @@ class AppFixtures extends Fixture
                 ->setFirstName($faker->firstName())
                 ->setCodeName($faker->colorName())
                 ->setDateOfBirth($faker->dateTimeBetween($startDate = '- 50 years', $endDate = '- 25 years', null ))
-                ->setNationality($faker->country())
-                ->setSkills(['explosif', 'arts martiaux', 'armes de poings', 'sniper', 'poison']);
+                ->setNationality($faker->country());
+                
             $manager->persist($agents);
         }
 
