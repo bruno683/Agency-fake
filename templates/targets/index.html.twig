@@ -1,0 +1,43 @@
+{% extends "layouts/base.html.twig" %}
+{% block body %}
+    <h1>Targets index</h1>
+    <div class="card shadow-lg p-3 mb-5 bg-body rounded">
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>LastName</th>
+                    <th>FirstName</th>
+                    <th>DateOfBirth</th>
+                    <th>Nationality</th>
+                    <th>CodeName</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for target in targets %}
+                <tr>
+                    <td>{{ target.id }}</td>
+                    <td>{{ target.lastName }}</td>
+                    <td>{{ target.firstName }}</td>
+                    <td>{{ target.dateOfBirth ? target.dateOfBirth|date('d-m-Y ') : '' }}</td>
+                    <td>{{ target.nationality }}</td>
+                    <td>{{ target.codeName }}</td>
+                    <td>
+                        <a href="{{ path('targets_show', {'id': target.id}) }}">show</a>
+                        <a href="{{ path('targets_edit', {'id': target.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    
+        <a href="{{ path('targets_new') }}">Create new</a>
+
+    </div>
+    
+{% endblock %}
