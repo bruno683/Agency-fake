@@ -21,7 +21,7 @@ class MissionsController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'missions_new', methods: ['GET','POST'])]
+    #[Route('/admin/new', name: 'missions_new', methods: ['GET','POST'])]
     public function new(Request $request): Response
     {
         $mission = new Missions();
@@ -41,7 +41,7 @@ class MissionsController extends AbstractController
             'form' => $form,
         ]);
     }
-    #[Route('/{id}', name: 'missions_show', methods: ['GET'])]
+    #[Route('/admin/{id}', name: 'missions_show', methods: ['GET'])]
     public function show(Missions $mission): Response
     {
         return $this->render('missions/show.html.twig', [
@@ -50,7 +50,7 @@ class MissionsController extends AbstractController
     }
     
 
-    #[Route('/{id}/edit', name: 'missions_edit', methods: ['GET','POST'])]
+    #[Route('/admin/{id}/edit', name: 'missions_edit', methods: ['GET','POST'])]
     public function edit(Request $request, Missions $mission): Response
     {
         $form = $this->createForm(MissionsType::class, $mission);
@@ -68,7 +68,7 @@ class MissionsController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'missions_delete', methods: ['POST'])]
+    #[Route('/admin/{id}', name: 'missions_delete', methods: ['POST'])]
     public function delete(Request $request, Missions $mission): Response
     {
         if ($this->isCsrfTokenValid('delete'.$mission->getId(), $request->request->get('_token'))) {
