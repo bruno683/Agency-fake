@@ -99,13 +99,8 @@ class MissionsType extends AbstractType
                 'expanded'=>true
             ])
             ->add('hideOut', EntityType::class, [
-                'label'=> 'Planque :',
                 'class'=> HideOuts::class,
-                'choice_label'=>function($hideOut){
-                    return $hideOut->getCode().' | '. $hideOut->getType().' | '.$hideOut->getCountry().' | '.$hideOut->getCity();
-                },
-                'multiple'=>true,
-                'expanded'=>true
+                'choice_label'=>'Type'
             ])
         ;
     }
