@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Agents;
 use App\Entity\Contacts;
+use App\Entity\HideOuts;
 use App\Entity\Missions;
 use App\Entity\Targets;
 use App\Repository\AgentsRepository;
@@ -93,6 +94,15 @@ class MissionsType extends AbstractType
                 'class'=>Contacts::class,
                 'choice_label'=> function(Contacts $contacts){
                     return $contacts->getLastName().' '. $contacts->getFirstName();
+                },
+                'multiple'=>true,
+                'expanded'=>true
+            ])
+            ->add('hideOut', EntityType::class, [
+                'label'=> 'Planque :',
+                'class'=> HideOuts::class,
+                'choice_label'=>function($hideOut){
+                    return $hideOut->getCode().' | '. $hideOut->getType().' | '.$hideOut->getCountry().' | '.$hideOut->getCity();
                 },
                 'multiple'=>true,
                 'expanded'=>true

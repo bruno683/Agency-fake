@@ -79,6 +79,11 @@ class Missions
      */
     private $contacts;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=HideOuts::class)
+     */
+    private $hideOut;
+
     public function __construct()
     {
         $this->agents = new ArrayCollection();
@@ -267,6 +272,18 @@ class Missions
     public function removeContact(Contacts $contact): self
     {
         $this->contacts->removeElement($contact);
+
+        return $this;
+    }
+
+    public function getHideOut(): ?HideOuts
+    {
+        return $this->hideOut;
+    }
+
+    public function setHideOut(?HideOuts $hideOut): self
+    {
+        $this->hideOut = $hideOut;
 
         return $this;
     }
