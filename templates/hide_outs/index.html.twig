@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<title>HideOuts index</title>
+
+{% block body %}
+    <h1>HideOuts index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Type</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hide_out in hide_outs %}
+            <tr>
+                <td>{{ hide_out.id }}</td>
+                <td>{{ hide_out.code }}</td>
+                <td>{{ hide_out.type }}</td>
+                <td>{{ hide_out.country }}</td>
+                <td>{{ hide_out.city }}</td>
+                <td>
+                    <a href="{{ path('hide_outs_show', {'id': hide_out.id}) }}">show</a>
+                    <a href="{{ path('hide_outs_edit', {'id': hide_out.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('hide_outs_new') }}">Create new</a>
+{% endblock %}

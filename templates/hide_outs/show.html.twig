@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<title>HideOuts</title>
+
+{% block body %}
+    <h1>HideOuts</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ hide_out.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ hide_out.code }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ hide_out.type }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ hide_out.country }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ hide_out.city }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('hide_outs_index') }}">back to list</a>
+
+    <a href="{{ path('hide_outs_edit', {'id': hide_out.id}) }}">edit</a>
+
+    {{ include('hide_outs/_delete_form.html.twig') }}
+{% endblock %}

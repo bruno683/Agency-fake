@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<title>Edit HideOuts</title>
+
+{% block body %}
+    <h1>Edit HideOuts</h1>
+
+    {{ include('hide_outs/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('hide_outs_index') }}">back to list</a>
+
+    {{ include('hide_outs/_delete_form.html.twig') }}
+{% endblock %}
